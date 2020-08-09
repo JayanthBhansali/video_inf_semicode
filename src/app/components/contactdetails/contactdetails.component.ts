@@ -10,7 +10,6 @@ import { MyaccountComponent } from '../myaccount/myaccount.component';
 export class ContactdetailsComponent implements OnInit {
   details: any;
   no_of_contacts:number;
-
   constructor() { 
     this.details=["Tata Consultancy Services, TCS Center, Infopark, Kochi, Kerala 682042 India",
     "Tata Consultancy Services, TCS Center, Infopark, Kochi, Kerala 682042 India",

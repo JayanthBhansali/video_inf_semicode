@@ -16,9 +16,13 @@
         </div>
         <div class="disp">
             <div *ngFor="let detail of details">
-                <span class="rightcorner">
-                    <img src="../../../assets/images/dotedit.svg">
-                </span>
+                    <span class="rightcorner"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="../../../assets/images/dotedit.svg">
+                    </span>
+                    <span class="dropdown-menu dropdown-menu-right">
+                        <button class="dropdown-item" type="button">Edit</button>
+                        <button class="dropdown-item" type="button">Remove</button>
+                    </span>
                 <div class="contact">
                     {{detail}}
                 </div>

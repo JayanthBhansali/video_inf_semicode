@@ -72,5 +72,27 @@ h2  {
 .rightcorner {
     float: right;
     opacity: 0.54;
-    margin-top: -10px;
+    margin-top: -8px;
+    margin-left: -2px;
+}
+.dropdown-menu {
+    margin: 0px;
+    padding: 19px;
+    padding-bottom: 7px;
+    width: fit-content;
+    min-width: 90px;
+    z-index: 1;
+    margin-top: -12px;
+    margin-right: -2px;
+}
+
+.dropdown-item {
+    font: 14px/17px Sofia Pro;
+    letter-spacing: 0px;
+    color: #254059;
+    margin:0px;
+    padding: 0px;
+    width: fit-content;
+    min-width: 90px;
+    margin-bottom: 13px;
 }

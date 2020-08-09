@@ -59,6 +59,12 @@ h2  {
     padding: 0px;
     margin-bottom: 25px;
 }
+/*
+.test-body {
+    -webkit-filter: blur(2px);     
+    filter: blur(2px); 
+}
+*/
 .modal-content {
     border: none;
     border-radius: unset;

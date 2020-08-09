@@ -1,0 +1,35 @@
+
+<div>
+    <app-navigationclass></app-navigationclass>
+</div>
+<!-- Code inside this block -->
+<div class="test-body">
+
+    <app-myaccount></app-myaccount>
+    <div class="container">
+        <div>
+            <span class="_moveleft">
+                <h2>Saved Cards<span class="styl">Found {{cardsList.length}} cards</span></h2>
+            </span>
+            <span class="_moveright">
+                <button type="button" class="btn btn-primary">Add New +</button>
+            </span>
+        </div>
+        <div class="disp">
+            <div *ngFor="let card of cardsList" [ngClass]="card.card_id===defaultCardId? 'fordefaultClass':'forclass'">
+                <span class="rightcorner">
+                    <img src="../../../../assets/images/dotedit.svg">
+                </span>
+                <span class="cardcontent">
+                    <p style="font-size: 15px;">XXXX XXXX XXXX {{card.card_number.substring(12, 16)}}</p>
+                    <p style="font-size: 16px;">{{card.card_holder_name}}</p>
+                    <p style="font-size: 14px;margin-top: 27px;">{{card.expiry_date}}</p>
+                </span>
+                <button type="button" class="btn btn-primary" (click)="setAsDefault(card)">
+                    <img [src]=" card.card_id===defaultCardId ? '../../../../assets/images/TickOnDefaultButton.svg' : ''">
+                    Set as Default
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

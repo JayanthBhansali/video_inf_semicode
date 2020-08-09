@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbDropdown } from '@ng-bootstrap/ng-bootstrap';
 import { NavigationclassComponent} from '../navigationclass/navigationclass.component'
 import { MyaccountComponent } from '../myaccount/myaccount.component';
 
@@ -8,9 +9,27 @@ import { MyaccountComponent } from '../myaccount/myaccount.component';
   styleUrls: ['./artistpref.component.css']
 })
 export class ArtistprefComponent implements OnInit {
-  artistname:string[];
+  artistname:any[];
+  selAddr:number=1;
   constructor() { 
-    this.artistname=["ABC","DEF","GHI"];
+    this.artistname=[
+      {
+        id:1,
+        name:"ABC",
+        address:"AAAAAAAAAAA AAAAAA AAAAAAAAAAAAAA AAAAAA",
+        card:"XXXX XXXX XXXX 1234"
+      },
+      {
+        id:2,
+        name:"DEF",
+        address:"AAAAAAAAAAA AAAAAA AAAAAAAAAAAAAA AAAAAA",
+        card:"XXXX XXXX XXXX 1234"
+      }
+    ];
+  }
+
+  addr(num:number) {
+    this.selAddr=num;
   }
   
   ngOnInit(): void {

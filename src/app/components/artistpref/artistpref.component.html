@@ -7,23 +7,150 @@
     <app-myaccount></app-myaccount>
     <div class="container">
         <div>
-            <span class="_moveleft">
+            <span class="moveleft">
                 <h2>Preferences</h2>
                 <div class="flex-spacer"></div>
             </span>
-            <span class="nav">
+            <span class="innernavbar">
                 <a routerLink="/preference" mat-button>Interest</a>
                 <a routerLink="/artist-preference" mat-button>Artist</a>
             </span>
         </div>
         <div class="disp">
-            <div *ngFor="let name of artistname">
+            <div *ngFor="let name of artistname" class="content">
                 <span>
-                    <p>{{name}}</p>
+                    <p>{{name.name}}</p>
                     <span style="color: #8395A5;font-size: 12px; margin-top: -12px;">1M+ Followers</span>
                 </span>
                 <button type="button" class="btn btn-primary">Follow</button>
-            </div>
+            </div> 
         </div>
+
+
+        <div ngbDropdown >
+        <div 
+            id="dropdownForm1"
+            ngbDropdownToggle
+            style="width: 300px; background-color: #ffffff; padding: 10px;">
+            Select your delivery address
+        </div>
+        <div ngbDropdownMenu aria-labelledby="dropdownForm1"  display="dynamic">
+            <div style="display: flex; margin-bottom:0px;">
+                <div class="_moveleft">
+                    <label for="changeAddr" class="changeaddr">Change Address</label>
+                </div>
+                <div class="_moveright">
+                    <img src="../../../assets/images/edit_bag.svg" height="23px" width="23px" style="margin-right: 12px;">
+                    <img src="../../../assets/images/add_but.svg" height="13px" width="13px">
+                </div>
+            </div>
+            <form>
+                <div *ngFor="let name of artistname">
+                    <div style="display: flex; margin-top:21px;" class="form-group">
+                        <span style="justify-content: center; align-self: center; width:13px; margin: 0px;">
+                            <img 
+                                *ngIf="name.id==selAddr" 
+                                src="../../../assets/images/select_icon_bag.svg"
+                                height="9px" 
+                                width="12px">
+                        </span> 
+                        <label
+                            type="text"
+                            class="form-control"
+                            (click)="addr(name.id)" 
+                            style="border: none; margin:0px; padding:0px; margin-left: 12px;" 
+                            [ngStyle]="{'color':name.id==selAddr?'#6011F5':'inherit'}"
+                            rows="2">{{name.address}}
+                        </label>    
+                    </div>
+                </div>
+            </form>
+        </div>
+        </div>
+
+
+        <div ngbDropdown >
+            <div 
+                id="dropdownForm1"
+                ngbDropdownToggle
+                style="width: 300px; background-color: #ffffff; padding: 10px;">
+                Select your delivery address
+            </div>
+            <div ngbDropdownMenu aria-labelledby="dropdownForm1"  display="dynamic">
+                <div style="display: flex; margin-bottom:0px;">
+                    <div class="_moveleft">
+                        <label for="changeAddr" class="changeaddr">Change Address</label>
+                    </div>
+                    <div class="_moveright">
+                        <img src="../../../assets/images/edit_bag.svg" height="23px" width="23px" style="margin-right: 12px;">
+                        <img src="../../../assets/images/add_but.svg" height="13px" width="13px">
+                    </div>
+                </div>
+                <form>
+                    <div *ngFor="let name of artistname">
+                        <div style="display: flex; margin-top:21px;" class="form-group">
+                            <span style="justify-content: center; align-self: center; width:13px; margin: 0px;">
+                                <img 
+                                    *ngIf="name.id==selAddr" 
+                                    src="../../../assets/images/select_icon_bag.svg"
+                                    height="9px" 
+                                    width="12px">
+                            </span> 
+                            <label
+                                type="text"
+                                class="form-control"
+                                (click)="addr(name.id)" 
+                                style="border: none; margin:0px; padding:0px; margin-left: 12px;" 
+                                [ngStyle]="{'color':name.id==selAddr?'#6011F5':'inherit'}"
+                                rows="2">{{name.address}}
+                            </label>    
+                        </div>
+                    </div>
+                </form>
+            </div>
+            </div>
+
+            <div ngbDropdown >
+            <div 
+                id="dropdownForm1"
+                ngbDropdownToggle
+                style="width: 300px; background-color: #ffffff; padding: 10px;">
+                Select your delivery address
+            </div>
+            <div ngbDropdownMenu aria-labelledby="dropdownForm1"  display="dynamic">
+                <div style="display: flex; margin-bottom:0px;">
+                    <div class="_moveleft">
+                        <label for="changeAddr" class="changeaddr">Change Address</label>
+                    </div>
+                    <div class="_moveright">
+                        <img src="../../../assets/images/edit_bag.svg" height="23px" width="23px" style="margin-right: 12px;">
+                        <img src="../../../assets/images/add_but.svg" height="13px" width="13px">
+                    </div>
+                </div>
+                <form>
+                    <div *ngFor="let name of artistname">
+                        <div style="display: flex; margin-top:21px;" class="form-group">
+                            <span style="justify-content: center; align-self: center; width:13px; margin: 0px;">
+                                <img 
+                                    *ngIf="name.id==selAddr" 
+                                    src="../../../assets/images/select_icon_bag.svg"
+                                    height="9px" 
+                                    width="12px">
+                            </span> 
+                            <label
+                                type="text"
+                                class="form-control"
+                                (click)="addr(name.id)" 
+                                style="border: none; margin:0px; padding:0px; margin-left: 12px;" 
+                                [ngStyle]="{'color':name.id==selAddr?'#6011F5':'inherit'}"
+                                rows="2">{{name.address}}
+                            </label>    
+                        </div>
+                    </div>
+                </form>
+            </div>
+            </div>
+            
+     
     </div>
 </div>

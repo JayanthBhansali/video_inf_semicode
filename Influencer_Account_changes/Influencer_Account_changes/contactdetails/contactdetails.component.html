@@ -1,0 +1,109 @@
+<div>
+    <app-navigationclass></app-navigationclass>
+</div>
+<!-- Code inside this block -->
+<div class="test-body">
+
+    <app-myaccount></app-myaccount>
+    <div class="container">
+        <div>
+            <span class="_moveleft">
+                <h2>Contact Details<span class="styl">Found {{contactList.length}} cards</span></h2>
+            </span>
+            <span class="_moveright">
+                <button type="button" class="bt btn-primary" (click)=addNewContact()>Add New + </button>
+            </span>
+        </div>
+
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <div *ngIf="editOrAddFlag==='Edit'">
+                    <h1><style> h1 {text-align: center;} </style>ADDRESS UPDATION<span class="close" (click)=closeButton()> &times;</span> </h1>   
+                </div>
+                <div *ngIf="editOrAddFlag==='Add'">
+                <h1><style> h1 {text-align: center;} </style>ADDRESS REGISTRATION<span class="close" (click)=closeButton()> &times;</span> </h1>
+                 </div>
+                <div class="form-group">
+                    <label>Address Line1</label>
+                    <input type="text" #newcontact="ngModel" id="address1" name="address1"
+                        [(ngModel)]="contact.address_line_1" class="form-control" placeholder="Address Line1"
+                        required />
+                </div>
+                <div class="form-group">
+                    <label>Address Line2</label>
+                    <input type="text" #newcontact="ngModel" id="address2" name="address2"
+                        [(ngModel)]="contact.address_line_2" class="form-control" placeholder="Address Line2"
+                        required />
+                </div>
+                <div class="form-group">
+                    <label>Landmark</label>
+                    <input type="text" #newcontact="ngModel" id="landmark" name="landmark"
+                        [(ngModel)]="contact.landmark" class="form-control" placeholder="Landmark" required />
+                </div>
+                <div class="form-group">
+                    <label>City</label>
+                    <input type="text" #newcontact="ngModel" id="city" name="city" [(ngModel)]="contact.city"
+                        class="form-control" placeholder="City" required />
+                </div>
+                <div class="form-group">
+                    <label>State</label>
+                    <input type="text" #newcontact="ngModel" id="state" name="state" [(ngModel)]="contact.state"
+                        class="form-control" placeholder="State" required />
+                </div>
+                <div class="form-group">
+                    <label>Zip</label>
+                    <input type="text" #newcontact="ngModel" id="zip" name="zip" [(ngModel)]="contact.zip"
+                        class="form-control" placeholder="Zip" required />
+                </div>
+                <div class="form-group">
+
+                    <button type="button" class="btn btn-primary" (click)="cancel()">Cancel</button>
+                    <div *ngIf="editOrAddFlag==='Add'">
+                        <button type="button" id="submit" [disabled]="(!contact.address_line_1 || !contact.address_line_2
+                      || !contact.landmark || !contact.city || !contact.state || !contact.zip)" class="btn btn-primary"
+                            (click)="addContact(contact)">Submit</button>
+                    </div>
+                    <div *ngIf="editOrAddFlag==='Edit'">
+                        <button type="button" id="update" [disabled]="(!contact.address_line_1 || !contact.address_line_2
+                      || !contact.landmark || !contact.city || !contact.state || !contact.zip)" class="btn btn-primary"
+                            (click)="updateContact(contact)">Update</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!--  <div #elem id="addnew" class="addContact" hidden=true>  
+           
+          </div> -->
+        <div class="disp">
+            <div *ngFor="let detail of contactList"
+                [ngClass]="detail.address_id===defaultAddId? 'fordefaultClass':'forclass'">
+                <span class="rightcorner">
+                    <img src="../../../../assets/images/dotedit.svg " (click)=enableEditRemove(detail.address_id)>
+                </span>
+                <div #elem id={{detail.address_id}} class="editRemove" hidden=true
+                    (clickOutside)=onClickedOutside($event,detail.address_id)>
+                    <span width=100% (click)="edit(detail)">Edit </span>
+                    <span width=100% (click)="delete(detail)">Remove </span>
+                </div>
+                <div class="contact">
+                    {{ detail.address_line_1 + ", " + detail.address_line_2
+               + ", " + detail.landmark
+               + ", " + detail.city
+               + ", " + detail.state
+               + ", " + detail.zip }}
+                </div>
+                <button type="button" class="btn btn-primary" (click)="setAsDefault(detail.address_id)">
+                    <img [src]=" detail.address_id===defaultAddId ? '../../../../assets/images/TickOnDefaultButton.svg' : ''">
+                    Set as Default
+
+                </button>
+
+            </div>
+        </div>
+
+
+    </div>
+</div>

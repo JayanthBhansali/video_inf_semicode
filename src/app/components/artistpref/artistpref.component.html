@@ -27,15 +27,19 @@
         </div>
 
 
-        <div ngbDropdown >
+        <div ngbDropdown placement="bottom-right">
         <div 
             id="dropdownForm1"
             ngbDropdownToggle
-            style="width: 300px; background-color: #ffffff; padding: 10px;">
+            style="width: 300px; 
+                   background-color: #ffffff; 
+                   padding: 10px; 
+                   box-shadow: 0px 1px 0px #D9D9D9; 
+                   border-radius: 6px;">
             Select your delivery address
         </div>
-        <div ngbDropdownMenu aria-labelledby="dropdownForm1"  display="dynamic">
-            <div style="display: flex; margin-bottom:0px;">
+        <div ngbDropdownMenu aria-labelledby="dropdownForm1"  display="dynamic" style="margin-top: -40px;">
+            <div style="display: flex; margin-bottom:0px; ">
                 <div class="_moveleft">
                     <label for="changeAddr" class="changeaddr">Change Address</label>
                 </div>
@@ -69,88 +73,72 @@
         </div>
 
 
-        <div ngbDropdown >
-            <div 
-                id="dropdownForm1"
-                ngbDropdownToggle
-                style="width: 300px; background-color: #ffffff; padding: 10px;">
-                Select your delivery address
+        <div ngbDropdown placement="bottom-right" style="margin-top: 10px;">
+        <div 
+            id="dropdownForm1"
+            ngbDropdownToggle
+            style="width: 300px; 
+                   background-color: #ffffff; 
+                   padding: 10px; 
+                   box-shadow: 0px 1px 0px #D9D9D9; 
+                   border-radius: 6px;">
+            Select your card
+        </div>
+        <div ngbDropdownMenu aria-labelledby="dropdownForm1"  display="dynamic" style="margin-top: -40px;"> 
+            <div style="display: flex; margin-bottom:0px;">
+                <div class="_moveleft">
+                    <label for="changeAddr" class="changeaddr">Change Card</label>
+                </div>
+                <div class="_moveright">
+                    <img src="../../../assets/images/edit_bag.svg" height="23px" width="23px" style="margin-right: 12px;">
+                    <img src="../../../assets/images/add_but.svg" height="13px" width="13px">
+                </div>
             </div>
-            <div ngbDropdownMenu aria-labelledby="dropdownForm1"  display="dynamic">
-                <div style="display: flex; margin-bottom:0px;">
-                    <div class="_moveleft">
-                        <label for="changeAddr" class="changeaddr">Change Address</label>
-                    </div>
-                    <div class="_moveright">
-                        <img src="../../../assets/images/edit_bag.svg" height="23px" width="23px" style="margin-right: 12px;">
-                        <img src="../../../assets/images/add_but.svg" height="13px" width="13px">
+            <form>
+                <div *ngFor="let name of artistname">
+                    <div style="display: flex; margin-top:21px;" class="form-group">
+                        <span style="justify-content: center; align-self: center; width:13px; margin: 0px;">
+                            <img 
+                                *ngIf="name.id==selCard" 
+                                src="../../../assets/images/select_icon_bag.svg"
+                                height="9px" 
+                                width="12px">
+                        </span> 
+                        <label
+                            type="text"
+                            class="form-control"
+                            (click)="card(name.id)" 
+                            style="background-image: url('../../../assets/images/card.svg'); 
+                                    background-size: cover; background-repeat: no-repeat;
+                                    height: 102px; width: 302px; border: none; color: #ffffff;
+                                    margin:0px; padding:0px; margin-left: 12px;">
+                            <label
+                                style="padding-top: 28px;
+                                       padding-left: 26px; 
+                                       padding-bottom: 12px; 
+                                       margin: unset; 
+                                       display: block;
+                                       font: 15px/20px Sofia Pro; letter-spacing: 0px;">
+                               <!--
+                               <pre style="margin: unset; color: #ffffff;">X X X X  X X X X  X X X X  {{name.card}}</pre>
+                                -->
+                                XXXX XXXX XXXX {{name.card}}
+                            </label>
+                            <label
+                                style="padding:0px;
+                                       padding-left: 26px; 
+                                       margin: unset; 
+                                       display: block;
+                                       font: 18px/20px Sofia Pro; letter-spacing: 0px;">
+                                {{name.exp}}
+                            </label>
+                        </label>    
                     </div>
                 </div>
-                <form>
-                    <div *ngFor="let name of artistname">
-                        <div style="display: flex; margin-top:21px;" class="form-group">
-                            <span style="justify-content: center; align-self: center; width:13px; margin: 0px;">
-                                <img 
-                                    *ngIf="name.id==selAddr" 
-                                    src="../../../assets/images/select_icon_bag.svg"
-                                    height="9px" 
-                                    width="12px">
-                            </span> 
-                            <label
-                                type="text"
-                                class="form-control"
-                                (click)="addr(name.id)" 
-                                style="border: none; margin:0px; padding:0px; margin-left: 12px;" 
-                                [ngStyle]="{'color':name.id==selAddr?'#6011F5':'inherit'}"
-                                rows="2">{{name.address}}
-                            </label>    
-                        </div>
-                    </div>
-                </form>
-            </div>
-            </div>
-
-            <div ngbDropdown >
-            <div 
-                id="dropdownForm1"
-                ngbDropdownToggle
-                style="width: 300px; background-color: #ffffff; padding: 10px;">
-                Select your delivery address
-            </div>
-            <div ngbDropdownMenu aria-labelledby="dropdownForm1"  display="dynamic">
-                <div style="display: flex; margin-bottom:0px;">
-                    <div class="_moveleft">
-                        <label for="changeAddr" class="changeaddr">Change Address</label>
-                    </div>
-                    <div class="_moveright">
-                        <img src="../../../assets/images/edit_bag.svg" height="23px" width="23px" style="margin-right: 12px;">
-                        <img src="../../../assets/images/add_but.svg" height="13px" width="13px">
-                    </div>
-                </div>
-                <form>
-                    <div *ngFor="let name of artistname">
-                        <div style="display: flex; margin-top:21px;" class="form-group">
-                            <span style="justify-content: center; align-self: center; width:13px; margin: 0px;">
-                                <img 
-                                    *ngIf="name.id==selAddr" 
-                                    src="../../../assets/images/select_icon_bag.svg"
-                                    height="9px" 
-                                    width="12px">
-                            </span> 
-                            <label
-                                type="text"
-                                class="form-control"
-                                (click)="addr(name.id)" 
-                                style="border: none; margin:0px; padding:0px; margin-left: 12px;" 
-                                [ngStyle]="{'color':name.id==selAddr?'#6011F5':'inherit'}"
-                                rows="2">{{name.address}}
-                            </label>    
-                        </div>
-                    </div>
-                </form>
-            </div>
-            </div>
-            
+            </form>
+        </div>
+        </div>
+        
      
     </div>
 </div>

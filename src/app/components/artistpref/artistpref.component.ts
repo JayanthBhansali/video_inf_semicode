@@ -11,19 +11,23 @@ import { MyaccountComponent } from '../myaccount/myaccount.component';
 export class ArtistprefComponent implements OnInit {
   artistname:any[];
   selAddr:number=1;
+  selCard:number=1;
+
   constructor() { 
     this.artistname=[
       {
         id:1,
         name:"ABC",
         address:"AAAAAAAAAAA AAAAAA AAAAAAAAAAAAAA AAAAAA",
-        card:"XXXX XXXX XXXX 1234"
+        card:"1234",
+        exp:"11/2025"
       },
       {
         id:2,
         name:"DEF",
         address:"AAAAAAAAAAA AAAAAA AAAAAAAAAAAAAA AAAAAA",
-        card:"XXXX XXXX XXXX 1234"
+        card:"1234",
+        exp:"11/2025"
       }
     ];
   }
@@ -32,6 +36,10 @@ export class ArtistprefComponent implements OnInit {
     this.selAddr=num;
   }
   
+  card(num:number) {
+    this.selCard=num;
+  }
+
   ngOnInit(): void {
   }
 
